@@ -16,7 +16,7 @@ export default function LoginForm() {
   // render
   return (
     <form action="submit" onSubmit={handleSubmit}>
-      <h1>Welcome to our site</h1>
+      <h1>Welcome to our site!</h1>
       <h2>Sign in</h2>
       <br />
       <input
