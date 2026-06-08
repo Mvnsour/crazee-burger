@@ -7,7 +7,7 @@ export default function AppRouter() {
   return (
     <Routes>
       <Route path="/" element={<LoginForm />} />
-      <Route path="/order" element={<OrderPage />} />
+      <Route path="/order/:username" element={<OrderPage />} />
       <Route path="*" element={<ErrorPage />} />
     </Routes>
   );

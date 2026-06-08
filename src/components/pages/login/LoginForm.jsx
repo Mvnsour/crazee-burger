@@ -1,13 +1,17 @@
+import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import Button from "../../Button";
 
 export default function LoginForm() {
   // state
   const [inputValue, setInputValue] = useState("");
+  const navigate = useNavigate();
   // behavior
   const handleSubmit = (e) => {
     e.preventDefault();
-    alert(`Welcome to your space ${inputValue}`);
+    if (inputValue.trim()) return;
     setInputValue("");
+    navigate(`order/${inputValue}`);
   };
 
   const handleChange = (e) => {
@@ -26,7 +30,13 @@ export default function LoginForm() {
         onChange={handleChange}
         required
       />
-      <button type="submit">Access your space</button>
+      {inputValue.trim() !== "" ? (
+        <Button text="Access your space" to={`/order/${inputValue.trim()}`} />
+      ) : (
+        <button type="button" disabled>
+          Access your space
+        </button>
+      )}
     </form>
   );
 }

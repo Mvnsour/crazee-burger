@@ -1,9 +1,12 @@
 import Button from "../../Button";
+import { useParams } from "react-router-dom";
 
-export default function OrderPage({ name }) {
+export default function OrderPage() {
+  const { username } = useParams();
+
   return (
     <>
-      Hello {name}!
+      <h1>Hello ! {username}</h1>
       <br />
       <Button text="Disconnect" to="/" />
     </>
