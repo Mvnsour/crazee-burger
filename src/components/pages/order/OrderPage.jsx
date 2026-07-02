@@ -6,9 +6,9 @@ export default function OrderPage() {
 
   return (
     <>
-      <h1>Hello ! {username}</h1>
+      <h1>Hey, {username}</h1>
       <br />
-      <Button text="Disconnect" to="/" />
+      <Button text="Se déconnecter" to="/" />
     </>
   );
 }
