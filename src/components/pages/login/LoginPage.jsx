@@ -19,18 +19,24 @@ const LoginPageStyled = styled.div`
   justify-content: center;
   align-items: center;
 
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${BurgerBg});
+  background-size: cover;
+  background-position: center;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+`;
+
+/* 
   ::before {
     content: "";
     background: url("${BurgerBg}") rgba(0, 0, 0, 0.5);
-    background-size: cover;
-    background-position: center;
-    background-blend-mode: darken;
-
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: -1;
-  }
-`;
+    background-blend-mode: darken; 
+    }
+    
+    */
