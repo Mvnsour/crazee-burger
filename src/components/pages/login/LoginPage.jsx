@@ -6,7 +6,6 @@ import BurgerBg from "../../../assets/images/F03-burger-bg.jpg";
 export default function LoginPage() {
   return (
     <LoginPageStyled>
-      <img src={BurgerBg} alt="Burger Background" />
       <Logo />
       <LoginForm />
     </LoginPageStyled>
@@ -19,13 +18,19 @@ const LoginPageStyled = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  img {
+
+  ::before {
+    content: "";
+    background: url("${BurgerBg}") rgba(0, 0, 0, 0.5);
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: darken;
+
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    right: 0;
+    bottom: 0;
     z-index: -1;
   }
 `;
