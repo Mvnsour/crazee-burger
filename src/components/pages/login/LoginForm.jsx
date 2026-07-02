@@ -1,42 +1,55 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router";
 import { useState } from "react";
+import { FaChevronRight } from "react-icons/fa";
+import { PiUserCircleFill } from "react-icons/pi";
 import Button from "../../Button";
+import styled from "styled-components";
 
 export default function LoginForm() {
   // state
   const [inputValue, setInputValue] = useState("");
   const navigate = useNavigate();
+
   // behavior
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (inputValue.trim()) return;
-    setInputValue("");
-    navigate(`order/${inputValue}`);
+    if (!inputValue.trim()) return; // bail out only when the field is empty
+    navigate(`order/${inputValue.trim()}`);
   };
 
   const handleChange = (e) => {
     setInputValue(e.target.value);
   };
+
   // render
   return (
-    <form action="submit" onSubmit={handleSubmit}>
-      <h1>Welcome to our site!</h1>
-      <h2>Sign in</h2>
-      <br />
-      <input
-        type="text"
-        value={inputValue}
-        placeholder="Enter your first name"
-        onChange={handleChange}
-        required
+    <LoginFormStyled onSubmit={handleSubmit}>
+      <h1>Bienvenue chez nous !</h1>
+      <hr />
+      <h2>Connectez-vous</h2>
+      <div>
+        <PiUserCircleFill />
+        <input
+          type="text"
+          value={inputValue}
+          placeholder="Entrer votre prénom"
+          onChange={handleChange}
+          required
+        />
+      </div>
+      <Button
+        text="Accéder à mon espace"
+        to={`/order/${inputValue.trim()}`}
+        icon={<FaChevronRight size={16} />}
       />
-      {inputValue.trim() !== "" ? (
-        <Button text="Access your space" to={`/order/${inputValue.trim()}`} />
-      ) : (
-        <button type="button" disabled>
-          Access your space
-        </button>
-      )}
-    </form>
+    </LoginFormStyled>
   );
 }
+
+const LoginFormStyled = styled.form`
+  background: green;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
