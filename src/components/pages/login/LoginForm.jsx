@@ -52,4 +52,28 @@ const LoginFormStyled = styled.form`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-align: center;
+  max-width: 500px;
+  min-width: 400px;
+  font-family: "Amatic SC", cursive;
+  border-radius: 5px;
+  margin: 8px auto;
+  padding: 2.5rem 2rem;
+
+  hr {
+    border: 1.5px solid #f56a2c;
+    margin-bottom: 40px;
+    width: 100%;
+  }
+
+  h1 {
+    color: white;
+    font-size: 48px;
+  }
+
+  h2 {
+    color: white;
+    font-size: 36px;
+    margin: 20px 10px 10px;
+  }
 `;
